@@ -1,0 +1,3453 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="AimBot: A Visual Guidance for Spatial Alignment of Vision-Language-Action Models">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AimBot: A Visual Guidance for Spatial Alignment of Vision-Language-Action Models</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <style>
+    .columns.is-centered { margin: 0 2rem; }
+    .column.is-half { margin-right: 2rem; }
+    .centered-image { display: block; margin-left: auto; margin-right: auto; width: 80%; }
+    video::-webkit-media-controls { display: none; }
+    video::-webkit-media-controls-enclosure { display: none; }
+    video:hover::-webkit-media-controls { display: block; }
+    video:hover::-webkit-media-controls-enclosure { display: block; }
+    video { -moz-controls: hidden; }
+    video:hover { -moz-controls: visible; }
+    .show-more-button { margin: 0.5rem; }
+    .video-grid-container {
+      margin: 0 2rem;
+    }
+    .video-grid {
+      display: grid;
+      gap: 10px;
+    }
+    .grid-header {
+      font-weight: bold;
+      text-align: center;
+      padding: 10px;
+    }
+    .grid-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .grid-item video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .hidden-row {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">AimBot: A Visual Guidance for Spatial Alignment of Vision-Language-Action Models</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+
+  <div class="has-text-centered">
+    <div id="bread-section">
+      <h2 class="title is-3">Task: Bread</h2>
+      <button class="button is-info show-more-button" onclick="toggleRows('bread-section')">Show More</button>
+      <div class="video-grid-container">
+        <div class="video-grid" style="grid-template-columns: repeat(9, 1fr);">
+
+          <div class="grid-header">OpenVLA-OFT (3/10)</div>
+
+          <div class="grid-header">OpenVLA-OFT + AimBot (9/10)</div>
+
+          <div class="grid-header">Pi0-FAST (9/10)</div>
+
+          <div class="grid-header">Pi0-FAST + AimBot (10/10)</div>
+
+          <div class="grid-header">Pi0 (4/10)</div>
+
+          <div class="grid-header">Pi0 + AimBot (7/10)</div>
+
+          <div class="grid-header">Pi0-Depth (6/10)</div>
+
+          <div class="grid-header">Pi0-RoboPoint (4/10)</div>
+
+          <div class="grid-header">Pi0-TraceVLA (5/10)</div>
+          <!-- === Row 0 === -->
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/openvla_oft/0_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/openvla_oft_aimbot/0_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_fast/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_fast_aimbot/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_aimbot/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_depth/0_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_robopoint/0_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_tracevla/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+          <!-- === Row 1 === -->
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/openvla_oft/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/openvla_oft_aimbot/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_fast/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_fast_aimbot/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0/1_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 1: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_aimbot/1_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 1: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_depth/1_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 1: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_robopoint/1_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 1: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_tracevla/1_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 1: Failure</b></p>
+          </div>
+          <!-- === Row 2 === -->
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/openvla_oft/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/openvla_oft_aimbot/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_fast/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_fast_aimbot/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_aimbot/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_depth/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_robopoint/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_tracevla/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+          <!-- === Row 3 === -->
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/openvla_oft/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/openvla_oft_aimbot/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_fast/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_fast_aimbot/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0/3_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 3: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_aimbot/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_depth/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_robopoint/3_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 3: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_tracevla/3_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 3: Failure</b></p>
+          </div>
+          <!-- === Row 4 === -->
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/openvla_oft/4_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 4: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/openvla_oft_aimbot/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_fast/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_fast_aimbot/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_aimbot/4_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 4: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_depth/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_robopoint/4_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 4: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_tracevla/4_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 4: Failure</b></p>
+          </div>
+          <!-- === Row 5 === -->
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/openvla_oft/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/openvla_oft_aimbot/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_fast/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_fast_aimbot/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0/5_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 5: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_aimbot/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_depth/5_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 5: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_robopoint/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_tracevla/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+          <!-- === Row 6 === -->
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/openvla_oft/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/openvla_oft_aimbot/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_fast/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_fast_aimbot/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_aimbot/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_depth/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_robopoint/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_tracevla/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+          <!-- === Row 7 === -->
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/openvla_oft/7_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 7: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/openvla_oft_aimbot/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_fast/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_fast_aimbot/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0/7_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 7: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_aimbot/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_depth/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_robopoint/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_tracevla/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+          <!-- === Row 8 === -->
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/openvla_oft/8_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 8: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/openvla_oft_aimbot/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_fast/8_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 8: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_fast_aimbot/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_aimbot/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_depth/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_robopoint/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_tracevla/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+          <!-- === Row 9 === -->
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/openvla_oft/9_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 9: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/openvla_oft_aimbot/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_fast/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_fast_aimbot/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0/9_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 9: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_aimbot/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_depth/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_robopoint/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/bread/pi0_tracevla/9_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 9: Failure</b></p>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+
+  <div class="has-text-centered">
+    <div id="coffee-section">
+      <h2 class="title is-3">Task: Coffee</h2>
+      <button class="button is-info show-more-button" onclick="toggleRows('coffee-section')">Show More</button>
+      <div class="video-grid-container">
+        <div class="video-grid" style="grid-template-columns: repeat(9, 1fr);">
+
+          <div class="grid-header">OpenVLA-OFT (2/10)</div>
+
+          <div class="grid-header">OpenVLA-OFT + AimBot (8/10)</div>
+
+          <div class="grid-header">Pi0-FAST (7/10)</div>
+
+          <div class="grid-header">Pi0-FAST + AimBot (9/10)</div>
+
+          <div class="grid-header">Pi0 (5/10)</div>
+
+          <div class="grid-header">Pi0 + AimBot (8/10)</div>
+
+          <div class="grid-header">Pi0-Depth (7/10)</div>
+
+          <div class="grid-header">Pi0-RoboPoint (6/10)</div>
+
+          <div class="grid-header">Pi0-TraceVLA (2/10)</div>
+          <!-- === Row 0 === -->
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/openvla_oft/0_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/openvla_oft_aimbot/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_fast/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_fast_aimbot/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0/0_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_aimbot/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_depth/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_robopoint/0_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_tracevla/0_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+          </div>
+          <!-- === Row 1 === -->
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/openvla_oft/1_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 1: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/openvla_oft_aimbot/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_fast/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_fast_aimbot/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0/1_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 1: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_aimbot/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_depth/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_robopoint/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_tracevla/1_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 1: Failure</b></p>
+          </div>
+          <!-- === Row 2 === -->
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/openvla_oft/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/openvla_oft_aimbot/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_fast/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_fast_aimbot/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_aimbot/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_depth/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_robopoint/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_tracevla/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+          <!-- === Row 3 === -->
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/openvla_oft/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/openvla_oft_aimbot/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_fast/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_fast_aimbot/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_aimbot/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_depth/3_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 3: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_robopoint/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_tracevla/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+          <!-- === Row 4 === -->
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/openvla_oft/4_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 4: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/openvla_oft_aimbot/4_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 4: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_fast/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_fast_aimbot/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_aimbot/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_depth/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_robopoint/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_tracevla/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+          <!-- === Row 5 === -->
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/openvla_oft/5_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 5: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/openvla_oft_aimbot/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_fast/5_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 5: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_fast_aimbot/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_aimbot/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_depth/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_robopoint/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_tracevla/5_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 5: Failure</b></p>
+          </div>
+          <!-- === Row 6 === -->
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/openvla_oft/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/openvla_oft_aimbot/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_fast/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_fast_aimbot/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_aimbot/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_depth/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_robopoint/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_tracevla/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+          <!-- === Row 7 === -->
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/openvla_oft/7_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 7: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/openvla_oft_aimbot/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_fast/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_fast_aimbot/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_aimbot/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_depth/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_robopoint/7_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 7: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_tracevla/7_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 7: Failure</b></p>
+          </div>
+          <!-- === Row 8 === -->
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/openvla_oft/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/openvla_oft_aimbot/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_fast/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_fast_aimbot/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0/8_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 8: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_aimbot/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_depth/8_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 8: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_robopoint/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_tracevla/8_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 8: Failure</b></p>
+          </div>
+          <!-- === Row 9 === -->
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/openvla_oft/9_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 9: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/openvla_oft_aimbot/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_fast/9_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 9: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_fast_aimbot/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_aimbot/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_depth/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_robopoint/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/coffee/pi0_tracevla/9_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 9: Failure</b></p>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+
+  <div class="has-text-centered">
+    <div id="drawer-section">
+      <h2 class="title is-3">Task: Drawer</h2>
+      <button class="button is-info show-more-button" onclick="toggleRows('drawer-section')">Show More</button>
+      <div class="video-grid-container">
+        <div class="video-grid" style="grid-template-columns: repeat(9, 1fr);">
+
+          <div class="grid-header">OpenVLA-OFT (6/10)</div>
+
+          <div class="grid-header">OpenVLA-OFT + AimBot (7/10)</div>
+
+          <div class="grid-header">Pi0-FAST (10/10)</div>
+
+          <div class="grid-header">Pi0-FAST + AimBot (10/10)</div>
+
+          <div class="grid-header">Pi0 (7/10)</div>
+
+          <div class="grid-header">Pi0 + AimBot (10/10)</div>
+
+          <div class="grid-header">Pi0-Depth (9/10)</div>
+
+          <div class="grid-header">Pi0-RoboPoint (9/10)</div>
+
+          <div class="grid-header">Pi0-TraceVLA (8/10)</div>
+          <!-- === Row 0 === -->
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/openvla_oft/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/openvla_oft_aimbot/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_fast/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_fast_aimbot/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0/0_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_aimbot/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_depth/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_robopoint/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_tracevla/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+          <!-- === Row 1 === -->
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/openvla_oft/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/openvla_oft_aimbot/1_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 1: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_fast/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_fast_aimbot/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_aimbot/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_depth/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_robopoint/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_tracevla/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+          <!-- === Row 2 === -->
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/openvla_oft/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/openvla_oft_aimbot/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_fast/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_fast_aimbot/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_aimbot/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_depth/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_robopoint/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_tracevla/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+          <!-- === Row 3 === -->
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/openvla_oft/3_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 3: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/openvla_oft_aimbot/3_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 3: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_fast/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_fast_aimbot/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0/3_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 3: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_aimbot/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_depth/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_robopoint/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_tracevla/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+          <!-- === Row 4 === -->
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/openvla_oft/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/openvla_oft_aimbot/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_fast/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_fast_aimbot/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_aimbot/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_depth/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_robopoint/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_tracevla/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+          <!-- === Row 5 === -->
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/openvla_oft/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/openvla_oft_aimbot/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_fast/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_fast_aimbot/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_aimbot/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_depth/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_robopoint/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_tracevla/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+          <!-- === Row 6 === -->
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/openvla_oft/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/openvla_oft_aimbot/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_fast/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_fast_aimbot/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_aimbot/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_depth/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_robopoint/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_tracevla/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+          <!-- === Row 7 === -->
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/openvla_oft/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/openvla_oft_aimbot/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_fast/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_fast_aimbot/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_aimbot/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_depth/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_robopoint/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_tracevla/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+          <!-- === Row 8 === -->
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/openvla_oft/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/openvla_oft_aimbot/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_fast/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_fast_aimbot/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_aimbot/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_depth/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_robopoint/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_tracevla/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+          <!-- === Row 9 === -->
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/openvla_oft/9_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 9: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/openvla_oft_aimbot/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_fast/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_fast_aimbot/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_aimbot/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_depth/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_robopoint/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/drawer/pi0_tracevla/9_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 9: Failure</b></p>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+
+  <div class="has-text-centered">
+    <div id="egg-section">
+      <h2 class="title is-3">Task: Egg</h2>
+      <button class="button is-info show-more-button" onclick="toggleRows('egg-section')">Show More</button>
+      <div class="video-grid-container">
+        <div class="video-grid" style="grid-template-columns: repeat(9, 1fr);">
+
+          <div class="grid-header">OpenVLA-OFT (2/10)</div>
+
+          <div class="grid-header">OpenVLA-OFT + AimBot (3/10)</div>
+
+          <div class="grid-header">Pi0-FAST (6/10)</div>
+
+          <div class="grid-header">Pi0-FAST + AimBot (8/10)</div>
+
+          <div class="grid-header">Pi0 (4/10)</div>
+
+          <div class="grid-header">Pi0 + AimBot (8/10)</div>
+
+          <div class="grid-header">Pi0-Depth (4/10)</div>
+
+          <div class="grid-header">Pi0-RoboPoint (0/10)</div>
+
+          <div class="grid-header">Pi0-TraceVLA (2/10)</div>
+          <!-- === Row 0 === -->
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/openvla_oft/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/openvla_oft_aimbot/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_fast/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_fast_aimbot/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_aimbot/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_depth/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_robopoint/0_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_tracevla/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+          <!-- === Row 1 === -->
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/openvla_oft/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/openvla_oft_aimbot/1_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 1: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_fast/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_fast_aimbot/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_aimbot/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_depth/1_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 1: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_robopoint/1_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 1: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_tracevla/1_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 1: Failure</b></p>
+          </div>
+          <!-- === Row 2 === -->
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/openvla_oft/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/openvla_oft_aimbot/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_fast/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_fast_aimbot/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_aimbot/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_depth/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_robopoint/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_tracevla/2_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 2: Failure</b></p>
+          </div>
+          <!-- === Row 3 === -->
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/openvla_oft/3_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 3: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/openvla_oft_aimbot/3_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 3: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_fast/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_fast_aimbot/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_aimbot/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_depth/3_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 3: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_robopoint/3_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 3: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_tracevla/3_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 3: Failure</b></p>
+          </div>
+          <!-- === Row 4 === -->
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/openvla_oft/4_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 4: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/openvla_oft_aimbot/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_fast/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_fast_aimbot/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_aimbot/4_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 4: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_depth/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_robopoint/4_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 4: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_tracevla/4_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 4: Failure</b></p>
+          </div>
+          <!-- === Row 5 === -->
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/openvla_oft/5_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 5: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/openvla_oft_aimbot/5_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 5: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_fast/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_fast_aimbot/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0/5_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 5: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_aimbot/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_depth/5_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 5: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_robopoint/5_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 5: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_tracevla/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+          <!-- === Row 6 === -->
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/openvla_oft/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/openvla_oft_aimbot/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_fast/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_fast_aimbot/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_aimbot/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_depth/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_robopoint/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_tracevla/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+          <!-- === Row 7 === -->
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/openvla_oft/7_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 7: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/openvla_oft_aimbot/7_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 7: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_fast/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_fast_aimbot/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0/7_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 7: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_aimbot/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_depth/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_robopoint/7_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 7: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_tracevla/7_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 7: Failure</b></p>
+          </div>
+          <!-- === Row 8 === -->
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/openvla_oft/8_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 8: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/openvla_oft_aimbot/8_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 8: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_fast/8_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 8: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_fast_aimbot/8_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 8: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0/8_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 8: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_aimbot/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_depth/8_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 8: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_robopoint/8_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 8: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_tracevla/8_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 8: Failure</b></p>
+          </div>
+          <!-- === Row 9 === -->
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/openvla_oft/9_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 9: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/openvla_oft_aimbot/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_fast/9_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 9: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_fast_aimbot/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0/9_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 9: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_aimbot/9_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 9: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_depth/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_robopoint/9_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 9: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/egg/pi0_tracevla/9_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 9: Failure</b></p>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+
+  <div class="has-text-centered">
+    <div id="fruits-section">
+      <h2 class="title is-3">Task: Fruits</h2>
+      <button class="button is-info show-more-button" onclick="toggleRows('fruits-section')">Show More</button>
+      <div class="video-grid-container">
+        <div class="video-grid" style="grid-template-columns: repeat(9, 1fr);">
+
+          <div class="grid-header">OpenVLA-OFT (7/10)</div>
+
+          <div class="grid-header">OpenVLA-OFT + AimBot (9/10)</div>
+
+          <div class="grid-header">Pi0-FAST (10/10)</div>
+
+          <div class="grid-header">Pi0-FAST + AimBot (10/10)</div>
+
+          <div class="grid-header">Pi0 (7/10)</div>
+
+          <div class="grid-header">Pi0 + AimBot (10/10)</div>
+
+          <div class="grid-header">Pi0-Depth (7/10)</div>
+
+          <div class="grid-header">Pi0-RoboPoint (8/10)</div>
+
+          <div class="grid-header">Pi0-TraceVLA (8/10)</div>
+          <!-- === Row 0 === -->
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/openvla_oft/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/openvla_oft_aimbot/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_fast/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_fast_aimbot/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_aimbot/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_depth/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_robopoint/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+
+          <div class="grid-item row-0 ">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_tracevla/0_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+          </div>
+          <!-- === Row 1 === -->
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/openvla_oft/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/openvla_oft_aimbot/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_fast/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_fast_aimbot/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_aimbot/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_depth/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_robopoint/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+
+          <div class="grid-item row-1 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_tracevla/1_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 1: Success</b></p>
+          </div>
+          <!-- === Row 2 === -->
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/openvla_oft/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/openvla_oft_aimbot/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_fast/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_fast_aimbot/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_aimbot/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_depth/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_robopoint/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+
+          <div class="grid-item row-2 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_tracevla/2_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 2: Success</b></p>
+          </div>
+          <!-- === Row 3 === -->
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/openvla_oft/3_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 3: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/openvla_oft_aimbot/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_fast/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_fast_aimbot/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_aimbot/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_depth/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_robopoint/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+
+          <div class="grid-item row-3 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_tracevla/3_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 3: Success</b></p>
+          </div>
+          <!-- === Row 4 === -->
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/openvla_oft/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/openvla_oft_aimbot/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_fast/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_fast_aimbot/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0/4_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 4: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_aimbot/4_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 4: Success</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_depth/4_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 4: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_robopoint/4_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 4: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-4 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_tracevla/4_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 4: Failure</b></p>
+          </div>
+          <!-- === Row 5 === -->
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/openvla_oft/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/openvla_oft_aimbot/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_fast/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_fast_aimbot/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0/5_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 5: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_aimbot/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_depth/5_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 5: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_robopoint/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+
+          <div class="grid-item row-5 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_tracevla/5_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 5: Success</b></p>
+          </div>
+          <!-- === Row 6 === -->
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/openvla_oft/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/openvla_oft_aimbot/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_fast/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_fast_aimbot/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_aimbot/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_depth/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_robopoint/6_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 6: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-6 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_tracevla/6_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 6: Success</b></p>
+          </div>
+          <!-- === Row 7 === -->
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/openvla_oft/7_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 7: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/openvla_oft_aimbot/7_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 7: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_fast/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_fast_aimbot/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_aimbot/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_depth/7_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 7: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_robopoint/7_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 7: Success</b></p>
+          </div>
+
+          <div class="grid-item row-7 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_tracevla/7_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 7: Failure</b></p>
+          </div>
+          <!-- === Row 8 === -->
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/openvla_oft/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/openvla_oft_aimbot/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_fast/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_fast_aimbot/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_aimbot/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_depth/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_robopoint/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+
+          <div class="grid-item row-8 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_tracevla/8_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 8: Success</b></p>
+          </div>
+          <!-- === Row 9 === -->
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/openvla_oft/9_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 9: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/openvla_oft_aimbot/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_fast/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_fast_aimbot/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0/9_failure.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#FF4500;">Trial 9: Failure</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_aimbot/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_depth/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_robopoint/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+
+          <div class="grid-item row-9 hidden-row">
+            <video controls muted loop playsinline width="100%" onloadstart="this.playbackRate=1">
+              <source src="static/videos/compressed_videos/fruits/pi0_tracevla/9_success.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;"><b style="color:#76B900;">Trial 9: Success</b></p>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Based on the open source template <a href="https://github.com/nerfies/nerfies.github.io">from here</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+function toggleRows(sectionId) {
+  const rows = document.querySelectorAll(`#${sectionId} .grid-item[class*="row-"]:not(.row-0)`);
+  const button = document.querySelector(`#${sectionId} .show-more-button`);
+  const isHidden = Array.from(rows).some(row => row.classList.contains('hidden-row'));
+  for (let row of rows) {
+    row.classList.toggle('hidden-row');
+  }
+  button.textContent = isHidden ? 'Show Less' : 'Show More';
+}
+</script>
+</body>
+</html>
