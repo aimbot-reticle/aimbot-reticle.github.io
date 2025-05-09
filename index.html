@@ -26,7 +26,7 @@
     <div class="container has-text-centered">
       <h1 class="title is-1">AimBot: A Simple Auxiliary Visual Cue to Enhance Spatial Awareness of Visuomotor Policies</h1>
       <p class="subtitle is-5">
-        ▶ Browse videos across tasks and methods for different versions (Real Main, Real OOD, Sim Main).<br>
+        ▶ Browse videos across tasks and methods for different settings (Real World Main Results, Real World OOD Results, Simulated Sample Results).<br>
         ▶ Click tabs above to switch between video sets.<br>
         ▶ Please wait a few seconds for the videos to load. (Tested on Safari and Chrome)<br>
         ▶ Each video has a corresponding success/failure with the episode (trial) number.<br>
@@ -42,7 +42,7 @@
 
 <div class="tabs is-centered is-boxed">
   <ul>
-<li><a onclick="showVersion('Real Main')">Real Main</a></li><li><a onclick="showVersion('Real OOD')">Real OOD</a></li><li><a onclick="showVersion('Sim Main')">Sim Main</a></li>
+<li><a onclick="showVersion('Real Main')">Real Main</a></li><li><a onclick="showVersion('Real OOD')">Real OOD</a></li><li><a onclick="showVersion('Sim Sample')">Sim Sample</a></li>
   </ul>
 </div>
 <div class="version-content" id="version-Real Main" style="display: none;">
@@ -3704,67 +3704,67 @@
     </div>
   </div>
 </div>
-<div class="version-content" id="version-Sim Main" style="display: none;">
+<div class="version-content" id="version-Sim Sample" style="display: none;">
 
   <div class="has-text-centered">
-    <div id="pick_up_the_orange_juice_and_place_it_in_the_basket-Sim Main-section">
+    <div id="pick_up_the_orange_juice_and_place_it_in_the_basket-Sim Sample-section">
       <h2 class="title is-3">Task: Pick up the orange juice and place it in the basket.</h2>
       <div class="video-grid-container">
         <div class="video-grid" style="grid-template-columns: repeat(6, 1fr);">
 
-          <div class="grid-header">OpenVLA-OFT (1/1)</div>
+          <div class="grid-header">OpenVLA-OFT</div>
 
-          <div class="grid-header">OpenVLA-OFT + AimBot (1/1)</div>
+          <div class="grid-header">OpenVLA-OFT + AimBot</div>
 
-          <div class="grid-header">Pi0-FAST (1/1)</div>
+          <div class="grid-header">Pi0-FAST</div>
 
-          <div class="grid-header">Pi0-FAST + AimBot (1/1)</div>
+          <div class="grid-header">Pi0-FAST + AimBot</div>
 
-          <div class="grid-header">Pi0 (0/1)</div>
+          <div class="grid-header">Pi0</div>
 
-          <div class="grid-header">Pi0 + AimBot (1/1)</div>
+          <div class="grid-header">Pi0 + AimBot</div>
           <!-- === Row 0 === -->
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/pick_up_the_orange_juice_and_place_it_in_the_basket/openvla_oft/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/pick_up_the_orange_juice_and_place_it_in_the_basket/openvla_oft_aimbot/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/pick_up_the_orange_juice_and_place_it_in_the_basket/pi0_fast/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/pick_up_the_orange_juice_and_place_it_in_the_basket/pi0_fast_aimbot/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/pick_up_the_orange_juice_and_place_it_in_the_basket/pi0/0_failure.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+            <p style="text-align:center;"><b style="color:#FF4500;">Failure</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/pick_up_the_orange_juice_and_place_it_in_the_basket/pi0_aimbot/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
         </div>
       </div>
@@ -3773,64 +3773,64 @@
   </div>
 
   <div class="has-text-centered">
-    <div id="put_both_moka_pots_on_the_stove-Sim Main-section">
+    <div id="put_both_moka_pots_on_the_stove-Sim Sample-section">
       <h2 class="title is-3">Task: Put both moka pots on the stove.</h2>
       <div class="video-grid-container">
         <div class="video-grid" style="grid-template-columns: repeat(6, 1fr);">
 
-          <div class="grid-header">OpenVLA-OFT (0/1)</div>
+          <div class="grid-header">OpenVLA-OFT</div>
 
-          <div class="grid-header">OpenVLA-OFT + AimBot (0/1)</div>
+          <div class="grid-header">OpenVLA-OFT + AimBot</div>
 
-          <div class="grid-header">Pi0-FAST (0/1)</div>
+          <div class="grid-header">Pi0-FAST</div>
 
-          <div class="grid-header">Pi0-FAST + AimBot (1/1)</div>
+          <div class="grid-header">Pi0-FAST + AimBot</div>
 
-          <div class="grid-header">Pi0 (0/1)</div>
+          <div class="grid-header">Pi0</div>
 
-          <div class="grid-header">Pi0 + AimBot (1/1)</div>
+          <div class="grid-header">Pi0 + AimBot</div>
           <!-- === Row 0 === -->
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_both_moka_pots_on_the_stove/openvla_oft/0_failure.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+            <p style="text-align:center;"><b style="color:#FF4500;">Failure</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_both_moka_pots_on_the_stove/openvla_oft_aimbot/0_failure.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+            <p style="text-align:center;"><b style="color:#FF4500;">Failure</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_both_moka_pots_on_the_stove/pi0_fast/0_failure.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+            <p style="text-align:center;"><b style="color:#FF4500;">Failure</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_both_moka_pots_on_the_stove/pi0_fast_aimbot/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_both_moka_pots_on_the_stove/pi0/0_failure.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+            <p style="text-align:center;"><b style="color:#FF4500;">Failure</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_both_moka_pots_on_the_stove/pi0_aimbot/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
         </div>
       </div>
@@ -3839,64 +3839,64 @@
   </div>
 
   <div class="has-text-centered">
-    <div id="put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate-Sim Main-section">
+    <div id="put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate-Sim Sample-section">
       <h2 class="title is-3">Task: Put the white mug on the plate and put the chocolate pudding to the right of the plate.</h2>
       <div class="video-grid-container">
         <div class="video-grid" style="grid-template-columns: repeat(6, 1fr);">
 
-          <div class="grid-header">OpenVLA-OFT (0/1)</div>
+          <div class="grid-header">OpenVLA-OFT</div>
 
-          <div class="grid-header">OpenVLA-OFT + AimBot (1/1)</div>
+          <div class="grid-header">OpenVLA-OFT + AimBot</div>
 
-          <div class="grid-header">Pi0-FAST (0/1)</div>
+          <div class="grid-header">Pi0-FAST</div>
 
-          <div class="grid-header">Pi0-FAST + AimBot (1/1)</div>
+          <div class="grid-header">Pi0-FAST + AimBot</div>
 
-          <div class="grid-header">Pi0 (0/1)</div>
+          <div class="grid-header">Pi0</div>
 
-          <div class="grid-header">Pi0 + AimBot (1/1)</div>
+          <div class="grid-header">Pi0 + AimBot</div>
           <!-- === Row 0 === -->
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate/openvla_oft/0_failure.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+            <p style="text-align:center;"><b style="color:#FF4500;">Failure</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate/openvla_oft_aimbot/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate/pi0_fast/0_failure.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+            <p style="text-align:center;"><b style="color:#FF4500;">Failure</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate/pi0_fast_aimbot/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate/pi0/0_failure.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+            <p style="text-align:center;"><b style="color:#FF4500;">Failure</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate/pi0_aimbot/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
         </div>
       </div>
@@ -3905,64 +3905,64 @@
   </div>
 
   <div class="has-text-centered">
-    <div id="put_the_wine_bottle_on_the_rack-Sim Main-section">
+    <div id="put_the_wine_bottle_on_the_rack-Sim Sample-section">
       <h2 class="title is-3">Task: Put the wine bottle on the rack.</h2>
       <div class="video-grid-container">
         <div class="video-grid" style="grid-template-columns: repeat(6, 1fr);">
 
-          <div class="grid-header">OpenVLA-OFT (1/1)</div>
+          <div class="grid-header">OpenVLA-OFT</div>
 
-          <div class="grid-header">OpenVLA-OFT + AimBot (1/1)</div>
+          <div class="grid-header">OpenVLA-OFT + AimBot</div>
 
-          <div class="grid-header">Pi0-FAST (0/1)</div>
+          <div class="grid-header">Pi0-FAST</div>
 
-          <div class="grid-header">Pi0-FAST + AimBot (1/1)</div>
+          <div class="grid-header">Pi0-FAST + AimBot</div>
 
-          <div class="grid-header">Pi0 (1/1)</div>
+          <div class="grid-header">Pi0</div>
 
-          <div class="grid-header">Pi0 + AimBot (1/1)</div>
+          <div class="grid-header">Pi0 + AimBot</div>
           <!-- === Row 0 === -->
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_the_wine_bottle_on_the_rack/openvla_oft/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_the_wine_bottle_on_the_rack/openvla_oft_aimbot/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_the_wine_bottle_on_the_rack/pi0_fast/0_failure.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+            <p style="text-align:center;"><b style="color:#FF4500;">Failure</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_the_wine_bottle_on_the_rack/pi0_fast_aimbot/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_the_wine_bottle_on_the_rack/pi0/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_the_wine_bottle_on_the_rack/pi0_aimbot/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
         </div>
       </div>
@@ -3971,64 +3971,64 @@
   </div>
 
   <div class="has-text-centered">
-    <div id="put_the_yellow_and_white_mug_in_the_microwave_and_close_it-Sim Main-section">
+    <div id="put_the_yellow_and_white_mug_in_the_microwave_and_close_it-Sim Sample-section">
       <h2 class="title is-3">Task: Put the yellow and white mug in the microwave and close it.</h2>
       <div class="video-grid-container">
         <div class="video-grid" style="grid-template-columns: repeat(6, 1fr);">
 
-          <div class="grid-header">OpenVLA-OFT (1/1)</div>
+          <div class="grid-header">OpenVLA-OFT</div>
 
-          <div class="grid-header">OpenVLA-OFT + AimBot (1/1)</div>
+          <div class="grid-header">OpenVLA-OFT + AimBot</div>
 
-          <div class="grid-header">Pi0-FAST (0/1)</div>
+          <div class="grid-header">Pi0-FAST</div>
 
-          <div class="grid-header">Pi0-FAST + AimBot (1/1)</div>
+          <div class="grid-header">Pi0-FAST + AimBot</div>
 
-          <div class="grid-header">Pi0 (0/1)</div>
+          <div class="grid-header">Pi0</div>
 
-          <div class="grid-header">Pi0 + AimBot (1/1)</div>
+          <div class="grid-header">Pi0 + AimBot</div>
           <!-- === Row 0 === -->
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_the_yellow_and_white_mug_in_the_microwave_and_close_it/openvla_oft/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_the_yellow_and_white_mug_in_the_microwave_and_close_it/openvla_oft_aimbot/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_the_yellow_and_white_mug_in_the_microwave_and_close_it/pi0_fast/0_failure.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+            <p style="text-align:center;"><b style="color:#FF4500;">Failure</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_the_yellow_and_white_mug_in_the_microwave_and_close_it/pi0_fast_aimbot/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_the_yellow_and_white_mug_in_the_microwave_and_close_it/pi0/0_failure.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+            <p style="text-align:center;"><b style="color:#FF4500;">Failure</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/put_the_yellow_and_white_mug_in_the_microwave_and_close_it/pi0_aimbot/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
         </div>
       </div>
@@ -4037,64 +4037,64 @@
   </div>
 
   <div class="has-text-centered">
-    <div id="turn_on_the_stove_and_put_the_moka_pot_on_it-Sim Main-section">
+    <div id="turn_on_the_stove_and_put_the_moka_pot_on_it-Sim Sample-section">
       <h2 class="title is-3">Task: Turn on the stove and put the moka pot on it.</h2>
       <div class="video-grid-container">
         <div class="video-grid" style="grid-template-columns: repeat(6, 1fr);">
 
-          <div class="grid-header">OpenVLA-OFT (1/1)</div>
+          <div class="grid-header">OpenVLA-OFT</div>
 
-          <div class="grid-header">OpenVLA-OFT + AimBot (1/1)</div>
+          <div class="grid-header">OpenVLA-OFT + AimBot</div>
 
-          <div class="grid-header">Pi0-FAST (0/1)</div>
+          <div class="grid-header">Pi0-FAST</div>
 
-          <div class="grid-header">Pi0-FAST + AimBot (1/1)</div>
+          <div class="grid-header">Pi0-FAST + AimBot</div>
 
-          <div class="grid-header">Pi0 (0/1)</div>
+          <div class="grid-header">Pi0</div>
 
-          <div class="grid-header">Pi0 + AimBot (1/1)</div>
+          <div class="grid-header">Pi0 + AimBot</div>
           <!-- === Row 0 === -->
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/turn_on_the_stove_and_put_the_moka_pot_on_it/openvla_oft/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/turn_on_the_stove_and_put_the_moka_pot_on_it/openvla_oft_aimbot/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/turn_on_the_stove_and_put_the_moka_pot_on_it/pi0_fast/0_failure.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+            <p style="text-align:center;"><b style="color:#FF4500;">Failure</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/turn_on_the_stove_and_put_the_moka_pot_on_it/pi0_fast_aimbot/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/turn_on_the_stove_and_put_the_moka_pot_on_it/pi0/0_failure.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#FF4500;">Trial 0: Failure</b></p>
+            <p style="text-align:center;"><b style="color:#FF4500;">Failure</b></p>
           </div>
 
           <div class="grid-item row-0 " data-episode="0">
             <video controls playsinline preload="metadata" width="100%" onloadstart="this.playbackRate=1">
               <source src="static/videos/compressed_videos_sim/turn_on_the_stove_and_put_the_moka_pot_on_it/pi0_aimbot/0_success.mp4" type="video/mp4">
             </video>
-            <p style="text-align:center;"><b style="color:#76B900;">Trial 0: Success</b></p>
+            <p style="text-align:center;"><b style="color:#76B900;">Success</b></p>
           </div>
         </div>
       </div>
@@ -4140,7 +4140,7 @@ function showVersion(versionId) {
   if (activeTab) activeTab.parentElement.classList.add('is-active');
 }
 window.onload = () => {
-  const firstVersion = Object.keys({"Real Main":1,"Real OOD":1,"Sim Main":1})[0];
+  const firstVersion = Object.keys({"Real Main":1,"Real OOD":1,"Sim Sample":1})[0];
   showVersion(firstVersion);
 };
 document.addEventListener('keydown', e => {
